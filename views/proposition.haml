@@ -1,0 +1,44 @@
+
+-#.grid_3
+-#  &nbsp;
+
+.grid_7
+  %h2= @proposition.name
+  %p= @proposition.text.gsub("\n", "</p><p>")
+  %p
+    .left
+      %a{:href => "/citizen/#{@proposition.citizen.id}"}= @proposition.citizen.name
+    .left
+      %a{:href => "/proposition/#{@proposition.id}"}= "✎ #{@proposition.arguments.size} arguments"
+    .left
+      %a{:href => "/proposition/#{@proposition.id}"}= "↑ Ja &nbsp;&nbsp; ↓ Nej &nbsp; → Avstå"
+    .left
+      Result:
+      = @proposition.result
+    .clear
+  %h3 Argument
+  - @proposition.arguments.each do |arg|
+    - @argument = arg
+    = partial :argument
+  .argument_filler &nbsp;
+  
+
+.grid_2
+  %h2 Ja
+  %ul
+    - @proposition.votes.select { |v| v.value == "1" }.each do |v|
+      %li= v.citizen.link
+  %h2 Nej
+  %ul
+    - @proposition.votes.select { |v| v.value == "-1" }.each do |v|
+      %li= v.citizen.link
+  %h2 Avstår
+  %ul
+    - @proposition.votes.select { |v| v.value == "0" }.each do |v|
+      %li= v.citizen.link
+
+.grid_3
+  %h2 Liknande motioner
+  %p Folk som röstade för den här propen har också röstat för...
+  %p Folk som röstade emot den här propen har också röstat emot...
+  

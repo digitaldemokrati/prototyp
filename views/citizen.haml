@@ -1,0 +1,72 @@
+
+.grid_4
+  %h2= @citizen.name
+  .grid_2.alpha
+    %p= "Röststyrka: #{@citizen.powerr}"
+    - unless @citizen.supporters.empty?
+      %p= "Average trust: #{@citizen.average_trust}"
+    %p= "Propositioner: #{@citizen.propositions.size rescue 0}"
+    %p= "Röster: #{@citizen.votes.size rescue 0}"
+  .grid_2.omega
+    %p= "Anhängare: #{@citizen.supporters.size rescue 0}"
+    %p= "Representanter: #{@citizen.representatives.size rescue 0}"
+    %p= "Argument: #{@citizen.arguments.size rescue 0}"
+  .clear
+  %h3 Propositions
+  %h3 Arguments
+  %h3 Votes
+  %ul
+    - @citizen.votes.each do |v|
+      %li= v.link
+
+.grid_5
+  %h2 Recent activity
+  - activities = @citizen.propositions
+  - activities.each do |a|
+    - if a.is_a? Proposition
+      %h3= a.name
+      %p= a.text.split("\n").first
+
+.grid_3
+  %h2 Representanter
+  %p= "#{@citizen.name} har utsett #{@citizen.representatives.size rescue 0} representanter:"
+  %ul
+    - @citizen.representatives.to_a.sort{|a,b| b.power <=> a.power}.each do |c|
+      %li= c.link
+
+  %h2 Representerar
+  %p= "#{@citizen.supporters.size rescue 0} medborgare har utsett #{@citizen.name} till sin representant:"
+  %ul
+    - @citizen.supporters.to_a.sort{|a,b| b.power <=> a.power}.each do |c|
+      %li= c.link
+
+- if nil
+  .grid_4
+    %h3 Votes
+    %ul
+      - @citizen.votes.each do |vote|
+        %li= vote.link
+  
+    %h3 Votes by proxy
+
+- if nil
+  .citizen_proposition
+    %h3 Propositions
+    - @citizen.propositions.each do |p|
+      %h3= p.name
+      %p= p.text
+      %h4 Arguments
+      %ul
+        - p.arguments.each do |a|
+          %li= a.text[0..100] rescue "[argument text not found]"
+
+  .citizen_arguments
+    %h3 Propositions
+    - @citizen.arguments.each do |a|
+      %h3= "#{a.citizen} ang #{a.proposition.name}"
+      %p= a.text
+
+  .citizen_votes
+    %h3 Propositions
+    - @citizen.votes.each do |v|
+      %p= v.to_s

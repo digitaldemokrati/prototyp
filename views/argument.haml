@@ -1,0 +1,16 @@
+.box
+  %p
+    .left
+      %b= "#{@argument.citizen.name}"
+    - v = @argument.citizen.votes.select { |v| v.proposition = @proposition }
+    - if v
+      .left
+        = "röstade ja" if v.first.value == "1"
+        = "röstade nej" if v.first.value == "-1"
+        = "avstod" if v.first.value == "0"
+    .clear
+  %p
+    = @argument.text.gsub("\n", "</p><p>")
+  - @argument.arguments.each do |arg|
+    - @argument = arg
+    = partial :argument
