@@ -1,11 +1,9 @@
 
-require 'rubygems'
-require 'sinatra'
+require 'bundler'
+Bundler.require
 
-class Foo < Sinatra::Application
-  get "/" do
-    "DD"
-  end
-end
+require './models'
+require './population'
+require './webapp'
 
-run Foo
+run Democracy
