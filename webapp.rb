@@ -7,10 +7,6 @@ class Democracy < Sinatra::Application
     haml :agora
   end
 
-  get "/about" do
-    haml :about
-  end
-  
   get "/citizen/:id" do
     @citizen = Citizen[params[:id]]
     haml :citizen
@@ -30,6 +26,14 @@ class Democracy < Sinatra::Application
     content_type 'text/css', :charset  => 'utf-8'
     sass :style
   end
+
+  get "/om/:id" do
+    haml :"om/#{params[:id]}"
+  end
+
+  get "/om/?" do
+    haml :'om/om'
+  end  
 
   helpers do
 
