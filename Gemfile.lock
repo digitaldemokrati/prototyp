@@ -1,4 +1,5 @@
 GEM
+  remote: http://rubygems.org/
   specs:
     haml (3.1.1)
     nest (1.1.0)
