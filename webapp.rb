@@ -1,6 +1,4 @@
 
-Ohm.connect
-
 class Democracy < Sinatra::Application
   
   get "/" do
