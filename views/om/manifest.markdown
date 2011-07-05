@@ -1,13 +1,12 @@
 
 
-Digital Demokrati
------------------
+Introduktion
+------------
 
 De flesta människor inser att det som idag kallas demokrati inte är en särskilt bra approximation av den den filosofiska idén om demokrati eller folkstyre. Demokratin som idé spåras ofta till antikens Aten, men det faktiska politiska system som användes där hade knappast några betydelsefulla likheter med modern "parlamentarisk demokrati". Eftersom demokrati ytterst är ett abstrakt begrepp går det förmodligen inte att skapa något sådant som en perfekt demokrati - men det vore sorgligt om vi inte kan skapa något som är bättre än den version vi har nu. Med hjälp av datorer och internet finns rimligen helt andra möjligheter för människor att samlas och gemensamt fatta beslut än vad som fanns för hundra eller tusen år sedan.
 
 
-Problemen med modern demokrati
-------------------------------
+### Problemen med modern demokrati
 
 * I ett modernt paralamentariskt system som det svenska får medborgare bara utöva inflytande en gång vart fjärde år, och inflytandet de då tillåts är minimalt. Resten av tiden är deras möjligheter att påverka det politiska livet i praktiken helt obefintliga.
 * Processen för att utse kandidater (och därmed vilka specifika personer som sitter i riksdagen) har de flesta människor inget som helst inflytande över, eftersom den sker helt och hållet inom de politiska partierna. Man kan inte rösta på den eller de personer som man själv tror bäst kan representera en, utan man ställs inför ett fåtal färdiga listor, mestadels befolkade av yrkespolitiker.
@@ -16,22 +15,14 @@ Problemen med modern demokrati
 * Sedan allmän rösträtt infördes har det aldrig hänt att ett svenskt val har avgjorts med en enda rösts övervikt. Därmed är det för varje avlagd röst under åtminstone de senaste hundra åren fallet att inget hade blivit annorlunda om den inte avlagts. Att folk över huvud taget röstar har därför gissningsvis fler orsaker än det obefintliga politiska inflytande en enskild röst ger. Det hela har mer karaktären av en enorm samhällelig ritual där man visar sin lojalitet till den styrande eliten och ödmjukar sig genom att symboliskt ge sitt stöd till en av en handfull fraktioner som tillsammans utgör eliten.
 
 
-Hur fungerade den antika demokratin
------------------------------------
-
-TODO
-
-
-Den moderna statsförvaltningens historia
-----------------------------------------
+### Den moderna statsförvaltningens historia
 
 Demokratin anses ofta vara något mycket betydelsefullt och revolutionerande. Vi lever nu i demokratins tidevarv, och staten antas därmed fungera på ett mycket annorlunda sätt än den gjorde innan allmän rösträtt infördes. Men lyfter man blicken är det lätt att se att det är ganska liten skillnad på hur samhället styrs nu och hur det styrdes innan den moderna moderna demokratiska omvälvningen. Den nuvarande svenska statsministern innehar en viss position med vissa specifika möjligheter till maktutövning. Denna position uppstod inte genom att den allmäna rösträtten infördes. Den moderna svenska statsförvaltningen (i grunden det som idag kallas för Regeringskansliet) skapades på 1500-talet av Gustav Vasa. Parallellt med kansliet har själva kungaämbetet evolverat till dagens statsministerämbete. Detta är det arv som Fredrik Reinfeldt förvaltar - inte en kultur av genuint folkstyre nedärvd från de klassiska grekerna.
 
 (Fotnot: Demokratientusiaster tenderar att hela tiden föra tillbaka uppmärksamheten till frågan om allmän rösträtt - som om det är den enda aspekt av demokrati som verkligen betyder något. Med detta perspektiv är det till och med så förvridet att den antika grekiska demokratin betraktas som en mindrevärdig variant av demokrati, inte fullt demokratisk, eftersom kvinnor och slavar inte fick rösta. Med dagens värderingar skulle vi förstås inte betrakta ett sådant demokrati som acceptabelt, men detta har mycket litet att göra med demokratins principer som sådana, och mer att göra med nutidens fäbless för jämlikhet och de specifika fördomar som är förhärskande just nu. (I Aten skulle man betraktat idén att ge slavar rösträtt som fullständigt bisarr, och detta kan förstås av moderna människor uppfattas som oerhört fördomsfullt. Samtidigt uppvisar moderna människor exakt samma attityd själva, men mot andra grupper. Mer än två och en halv miljoner svenska medborgare saknar fortfarande rösträtt, nära nog 27% av befolkningen.))
  
 
-Direkt _och_ representativ demokrati
-------------------------------------
+### Direkt _och_ representativ demokrati
 
 Digital Demokrati är ett helt automatiserat och internetbaserat demokratiskt system. Den mest betydelsefulla drivande principen är att i ett och samma system implementera både fullständig direkt demokrati och mycket sofistikerad representativ demokrati.
 
@@ -53,8 +44,7 @@ Med andra ord: I exakt den mån varje väljare själv vill tillämpas obegränsa
 De grundläggande principerna bakom Digital Demokrati är mycket enkla. En mängd medborgare framställer, diskuterar och röstar om politiska förslag. Allt sker genom en minimalistisk och lättanvänd hemsida. Systemet för att beräkna röster är relativt komplext, men en av grundprinciperna för projektet är att denna algoritm i likhet med all bakomliggande programkod måste vara helt öppen för vem som helst att granska. All källkod publiceras på följande address: https://github.com/digitaldemokrati
 
 
-Långsiktiga mål
----------------
+### Långsiktiga mål
 
 Till att börja med och på kort sikt är Digital Demokrati ett forum för människor som vill vara med och starta ett nytt stort samtal om samhället. På längre sikt, om tillräckligt många ansluter sig, är planen att projektet utvecklas till ett politiskt parti som ställer upp i valen till Sveriges Riksdag. Detta parti har inga partiledare och inget partiprogram, utan bara ett enda stort digitalt "partimöte" som pågår dygnet runt, året runt. 
 
@@ -67,8 +57,7 @@ Hur detta ska gå till i praktiken är naturligtvis i långa stycken oklart - pr
 * Det hjälper förmodligen om man utvecklar en kultur som inte fokuserar på att vara ett politiskt parti, utan om partiet istället ses som ett bihang till själva det demokratiska systemet. Partiet blir en kanal för att utöva inflytande över och ta emot pengar ifrån staten (partistöd, riksdagslöner osv).
 
 
-Teknisk integration med riksdagen
----------------------------------
+### Teknisk integration med riksdagen
 
 Grundmängden omröstningar och debatter i Digital Demokrati bör redan från början avar de omröstningar och debatter som sker i Sveriges Riksdag. Dessa importeras löpande av Digital Demokrati-systemet för att ge alla medborgare en mer lättsmält tillgång till riksdagens motioner, debatter osv - och också en möjlighet at gå rakt in i vilken debatt som helst och delta.
 
