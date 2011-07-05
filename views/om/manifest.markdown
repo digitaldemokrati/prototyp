@@ -1,7 +1,7 @@
 
 
 Digital Demokrati
-=================
+-----------------
 
 De flesta människor inser att det som idag kallas demokrati inte är en särskilt bra approximation av den den filosofiska idén om demokrati eller folkstyre. Demokratin som idé spåras ofta till antikens Aten, men det faktiska politiska system som användes där hade knappast några betydelsefulla likheter med modern "parlamentarisk demokrati". Eftersom demokrati ytterst är ett abstrakt begrepp går det förmodligen inte att skapa något sådant som en perfekt demokrati - men det vore sorgligt om vi inte kan skapa något som är bättre än den version vi har nu. Med hjälp av datorer och internet finns rimligen helt andra möjligheter för människor att samlas och gemensamt fatta beslut än vad som fanns för hundra eller tusen år sedan.
 
