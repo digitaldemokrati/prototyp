@@ -4,7 +4,7 @@ Digital Demokrati
 
 Digital Demokrati aims to implement a system for collective policy debate and decision making, leveraging both direct and representative democracy. The project is primarily aimed at Sweden and thus the main [introduction/manifesto](http://digitaldemokrati.se/) is available in Swedish only. However, development is done in english for various practical reasons - not least to enable people from all over the world to participate.
 
-For a generall introduction to the project, se the above link. What follows are some loose lists of things that remains to be done to finish this prototype. (Most of this should probably be converted into GitHub issues.)
+For a general introduction to the project, se the above link. What follows are some loose lists of things that remains to be done to finish the prototype. (Most of this should probably be converted into GitHub issues.)
 
 Milestone 1: Deploy a MVP
 -------------------------
