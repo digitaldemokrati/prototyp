@@ -40,6 +40,10 @@ class Democracy < Sinatra::Application
     def partial(page, options={})
       haml page, options.merge!(:layout => false)
     end
+
+    def md_partial(page, options={})
+      (markdown page, options.merge!(:layout => false)).force_encoding('utf-8')
+    end
     
     def authorized?
       rand > 0.5 ? true : false
