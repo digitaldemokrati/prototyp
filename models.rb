@@ -1,7 +1,8 @@
 # coding: utf-8
                                                                                                                                 
 class Citizen < Ohm::Model
-  attribute :name
+  attribute :firstname
+  attribute :lastname
   attribute :email                          ; index :email
   attribute :password_hash
   attribute :confirmed
@@ -14,6 +15,10 @@ class Citizen < Ohm::Model
 
   set :supporters, Citizen
   set :representatives, Citizen
+  
+  def name
+    "#{firstname} #{lastname}"
+  end
   
   def support(rep)
     representatives << rep
