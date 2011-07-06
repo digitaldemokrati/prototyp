@@ -1,8 +1,8 @@
-%p Att bli medlem i Digital Demokrati går snabbt och enkelt. Skriv in din e-postadress i rutan nedan så får du strax ett mail med ytterligare instruktioner:
+
 %p
-  %form
-    %input{ :style => "width: 150px"}
-    %input{ :type => "submit", :value => "Skicka!"}
+  %form{ :action => "/signup", :method => "post" }
+    %input{ :name => "signup[email]", :placeholder => "e-postadress" }
+    %input{ :type => "submit", :value => "Skapa konto!" }
 %p
   Man kan också logga in via Facebook:
   %img{ :src => "/images/facebook_login_button.png", :style => "margin-bottom: -7px" }

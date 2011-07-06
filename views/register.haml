@@ -1,0 +1,25 @@
+
+.grid_8
+
+  %h2
+    Välkommen till Digital Demokrati!
+    
+  %p För att skapa ditt konto behöver vi veta lite mer om dig:
+
+  %p
+    %form{ :method => "post" }
+      %table.no_border
+        %tr
+          %td Namn:
+          %td
+            %input{ :name => "signup[name]", :value => @name_suggestion }
+        %tr
+          %td Lösenord:
+          %td
+            %input{ :name => "signup[password]", :type => "password" }            
+        %tr
+          %td
+          %td
+            %input{ :type => "submit", :value => "Create account!"}
+            %input{ :type => "hidden", :name => "signup[email]", :value => @email }
+            %input{ :type => "hidden", :name => "signup[key]", :value => @key }

@@ -138,3 +138,31 @@ class Vote < Ohm::Model
   end
 end
 
+# Keys used for email confirmation of new users
+#
+# NOTE: Key.check currently returns an email address. Perhaps it should have an
+#       association to a User object instead...?
+#
+class HashKey < Ohm::Model
+  
+  attribute :email    ; index :email
+  attribute :hash     ; index :hash
+
+  class << self
+
+    def add email_added
+      create(
+        :email => email_added,
+        :hash => Digest::SHA1.hexdigest(email_added.inspect + rand(10**10).inspect)
+      ) 
+    end
+
+    def check hash_checked
+      k = find( :hash => hash_checked ).first
+      puts "found this key: #{k.inspect}"
+      return k.email if k
+    end
+
+  end
+
+end

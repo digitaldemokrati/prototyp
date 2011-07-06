@@ -1,5 +1,6 @@
 .grid_12#header
-  %span{ :style => "float:right; margin-top: 25px"}
-    %a{ :href => "/logout" } logout
+  - if authorized?
+    %span{ :style => "float:right; margin-top: 25px"}
+      %a{ :href => "/logout" } logout
   %h1
     %a{:href => "/"} Digital Demokrati

@@ -71,12 +71,13 @@ class Democracy < Sinatra::Application
     email = params['signup']['email']
   
     if !email.empty? && email.match(/\w+\@\w+\.\w+/)
-      key = Key.add email
+      puts "email given at signup: #{email.inspect}"
+      key = HashKey.add email
     
       #A.send_registration_mail email, key.keyhash
       #flash("E-mail has been sent to #{email}. The account is created when you click the link in the mail.", :accept)
 
-      flash("Key: <a href='/confirm/#{key.key}'>#{key.key}</a>", :accept)     # instead of email while developing
+      flash("Key: <a href='/confirm/#{key.hash}'>#{key.hash}</a>", :accept)     # instead of email while developing
     
       redirect '/'
     else
@@ -87,7 +88,7 @@ class Democracy < Sinatra::Application
 
   get '/confirm/:key/?' do
     @key = params[:key]
-    @email = Key.check params[:key]
+    @email = HashKey.check params[:key]
     #puts "Key: #{@key}"
     #puts "Email: #{@email}"
     if @email
@@ -105,25 +106,25 @@ class Democracy < Sinatra::Application
 
   post '/confirm/:key' do
   
-    unless Key.check(params[:key]) == params['signup']['email']
+    unless HashKey.check(params[:key]) == params['signup']['email']
       flash("You have provided an invalid registration key!", :error)
       redirect "/"
     else
-      foo = Citizen.find( :nickname => params['signup']['nickname'] ).first
-      puts "Looking up user from nickname: #{foo.inspect}"
-      if foo
-        flash("The nickname you chose is already taken!", :error)
-        @name_suggestion = params['signup']['name']
-        @email = params['signup']['email']
-        @key = params['signup']['key']
-        haml :'register'
-      else
+      #foo = Citizen.find( :nickname => params['signup']['nickname'] ).first
+      #puts "Looking up user from nickname: #{foo.inspect}"
+      #if foo
+      #  flash("The nickname you chose is already taken!", :error)
+      #  @name_suggestion = params['signup']['name']
+      #  @email = params['signup']['email']
+      #  @key = params['signup']['key']
+      #  haml :'register'
+      #else
         params['signup'].delete('key')
         params['signup']['confirmed'] = true
         session[:user] = Citizen.create params['signup']
         flash("Your account is created, and you are logged in. Welcome!", :accept)
         redirect "/"
-      end
+      #end
     end
      
   end
@@ -147,7 +148,7 @@ class Democracy < Sinatra::Application
       redirect "/reset_password"
     end
 
-    key = Key.add(email_given).key
+    key = HashKey.add(email_given).hash
     session[:flash_top] = flash "This app can not yet send email. Here is the confirmation link: </br>#{'&nbsp;'*10}<a href='/reset_password/#{key}'>#{key}</a>", :accept
     redirect "/reset_password"
   end
@@ -155,7 +156,7 @@ class Democracy < Sinatra::Application
   get '/reset_password/:key' do
   
     @key = params[:key]
-    user = Citizen.find( :email => Key.check(@key) ).first rescue nil
+    user = Citizen.find( :email => HashKey.check(@key) ).first rescue nil
   
     unless user
       session[:flash_top] = flash "The key you have entered is not valid."
@@ -169,7 +170,7 @@ class Democracy < Sinatra::Application
   
     @key = params[:key]
   
-    user = Citizen.find( :email => Key.check(@key) ).first rescue nil
+    user = Citizen.find( :email => HashKey.check(@key) ).first rescue nil
   
     unless user
       session[:flash_top] = flash "The key you have entered is not valid."

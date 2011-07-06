@@ -39,3 +39,30 @@ li
   margin-top: 10px
   border-top: 2px solid ccc
   height: 100px
+
+
+
+// Message flashes
+
+$dark_green: #1a9641
+$light_green: #a6d96a
+$dark_red: #ca373b
+$light_red: #fdae61
+$dark_yellow: #fe9929
+$light_yellow: #fed98e
+
+=flash
+  margin: 10px 0px 0px 0px
+  padding: 10px 0px 10px 15px
+
+.flash_accept
+  +flash
+  background-color: $light_green
+
+.flash_error
+  +flash
+  background-color: $light_yellow
+
+.sidebar
+  .flash_error
+    margin: 0px 0px 10px 0px

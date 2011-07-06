@@ -6,7 +6,7 @@ require './models'
 
 Ohm.connect
 
-%w(Citizen Proposition Vote Argument).each { |klass| eval "#{klass}.all.to_a.map(&:delete)"}
+%w(Citizen Proposition Vote Argument HashKey).each { |klass| eval "#{klass}.all.to_a.map(&:delete)"}
 
 # Set up some dummy citizens
 albert = Citizen.create :name => "Albert Bernstein", :email => "albert@example.org"

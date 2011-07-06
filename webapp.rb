@@ -1,3 +1,4 @@
+# encoding: utf-8
 
 Ohm.connect
 
@@ -64,10 +65,10 @@ class Democracy < Sinatra::Application
     #
     def flash(msg, type = :error)
       session[:flash_top] = "
-        <div class='flash_#{type.to_s} drop-shadow fill'>
-          <div class='pad'>
-            <img src='/icons/#{type.to_s}.png' /> #{msg}
-          </div>
+        <div class='flash_#{type.to_s}'>
+          #{type == :error ? '✘' : '✔' }
+          &nbsp;
+          #{msg}
         </div>"
     end
 
