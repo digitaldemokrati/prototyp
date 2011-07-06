@@ -29,8 +29,7 @@ Easy, huh?
 Milestone 1: Deploy a MVP
 -------------------------
 
-* Implement proper account handling:
- * Enable account creation
+* UPDATE: It is now possible to create accounts! However, the confirmation email is now just a confirmation link on the homepage. In other words, an email sending thingy needs to be created...
 * Enable users to create new propositions, arguments.
 * Implement voting on both propositions and arguments.
 * Do the actualy deployment somewhere and point digitaldemokrati.se to the server.
