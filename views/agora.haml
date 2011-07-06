@@ -8,28 +8,10 @@
       %p Digital Demokrati är Sveriges genuint demokratiska skuggparlament. Här kan alla medborgare delta i ett stort samtal om samhället, rösta i politiska frågor - och utse egna representanter för de omröstningar man själv inte kan eller vill delta i. <a href="/about">Läs mer här!</a>
     .grid_4
       %h3 Bli medlem!
-      %p Att bli medlem i Digital Demokrati går snabbt och enkelt. Skriv in din e-postadress i rutan nedan så får du strax ett mail med ytterligare instruktioner:
-      %p
-        %form
-          %input{ :style => "width: 150px"}
-          %input{ :type => "submit", :value => "Skicka!"}
-      %p
-        Man kan också logga in via Facebook:
-        %img{ :src => "/images/facebook_login_button.png", :style => "margin-bottom: -7px" }
+      = partial :signup
     .grid_4.omega
       %h3 Redan medlem? Logga in!
-      %p Ange din e-postadress och ditt lösenord:
-      %p
-        %form
-          E-post:
-          %input
-          %br
-          Lösenord:
-          %input
-          %input{ :type => "submit", :value => "Logga in!"}
-      %p
-        %a{ :href => "/password_reset" } Har du glömt ditt lösenord? Klicka här!
-    
+      = partial :login
 
 .grid_3
   %h2 Medborgare
