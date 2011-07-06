@@ -2,6 +2,9 @@
                                                                                                                                 
 class Citizen < Ohm::Model
   attribute :name
+  attribute :email                          ; index :email
+  attribute :password_hash
+  attribute :confirmed
   collection :votes, Vote
   collection :propositions, Proposition
   collection :arguments, Argument
@@ -51,6 +54,35 @@ class Citizen < Ohm::Model
   
   def link
     "<a href='/citizen/#{id}'>#{name} (#{powerr})</a>"
+  end
+
+
+  ## Stuff related to auth begins here.
+  ##############################################################################
+  
+  def password
+    @password ||= BCrypt::Password.new password_hash
+  end
+
+  def password= new_password
+    @password = BCrypt::Password.create new_password
+    self.password_hash = @password
+    save
+  end
+  
+  def may? realm
+    permissions.include? realm
+  end
+  
+  # NOTE: This is obviously a dummy....
+  #
+  def permissions
+    [:citizen]
+  end    
+  
+  def confirmed?
+    #confirmed == "true"
+    true
   end
   
 end

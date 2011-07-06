@@ -1,7 +1,16 @@
 
 Ohm.connect
 
+require './auth'
+
 class Democracy < Sinatra::Application
+
+  configure do
+    #set :environment, ENV['DATABASE_URL'] ? :production : :development
+    set :logging, true
+    set :dump_errors, true
+    use Rack::Session::Pool
+  end
   
   get "/" do
     haml :agora
@@ -35,6 +44,11 @@ class Democracy < Sinatra::Application
     haml :'om/om'
   end  
 
+  error 404 do
+    session[:flash_top] = flash("Sidan du angav kunde inte hittas (404).", :error)
+    redirect "/"
+  end
+
   helpers do
 
     def partial(page, options={})
@@ -45,8 +59,16 @@ class Democracy < Sinatra::Application
       (markdown page, options.merge!(:layout => false)).force_encoding('utf-8')
     end
     
-    def authorized?
-      rand > 0.5 ? true : false
+    # Usage: flash("Message", :type)
+    # In template: - if session[:flash_top] = session.delete(:flash_top)
+    #
+    def flash(msg, type = :error)
+      session[:flash_top] = "
+        <div class='flash_#{type.to_s} drop-shadow fill'>
+          <div class='pad'>
+            <img src='/icons/#{type.to_s}.png' /> #{msg}
+          </div>
+        </div>"
     end
 
   end
