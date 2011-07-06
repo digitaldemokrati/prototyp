@@ -89,14 +89,10 @@ class Democracy < Sinatra::Application
   get '/confirm/:key/?' do
     @key = params[:key]
     @email = HashKey.check params[:key]
-    #puts "Key: #{@key}"
-    #puts "Email: #{@email}"
     if @email
-      #puts "hittade en email"
-      @username_suggestion = @email.match(/^(.*?)@/)[1]
-      @name_suggestion = @username_suggestion.gsub(".", " ")#.titleize
-      #@username_suggestion = "" if Citizen.find( :nickname => @username_suggestion ).first
-      #@index = true
+      name_suggestion = @email.match(/^(.*?)@/)[1].split('.')
+      @first_name_suggestion = name_suggestion.first.capitalize
+      @last_name_suggestion = name_suggestion.last.capitalize if name_suggestion.length > 1
       haml :'register'
     else
       flash("You have provided an invalid registration key!", :error)
