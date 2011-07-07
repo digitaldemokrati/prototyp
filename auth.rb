@@ -82,7 +82,11 @@ class Democracy < Sinatra::Application
       #A.send_registration_mail email, key.keyhash
       #flash("E-mail has been sent to #{email}. The account is created when you click the link in the mail.", :accept)
 
-      flash("Key: <a href='/confirm/#{key.hash}'>#{key.hash}</a>", :accept)     # instead of email while developing
+      #flash("Key: <a href='/confirm/#{key.hash}'>#{key.hash}</a>", :accept)     # instead of email while developing
+      flash("Ett e-post har skickats till #{email} - öppna det och klicka på länken!", :accept)     # instead of email while developing
+      
+      name = "#{params['signup']['firstname']} #{params['signup']['lastname']}"
+      Mailer.mail name, email, "Välkommen till Digital Demokrati!", "Klicka på länken för att skapa ditt konto:\n\nhttp://localhost:9292/confirm/#{key.hash}"
     
       redirect '/'
     else
@@ -123,7 +127,7 @@ class Democracy < Sinatra::Application
         params['signup'].delete('key')
         params['signup']['confirmed'] = true
         session[:user] = Citizen.create params['signup']
-        flash("Your account is created, and you are logged in. Welcome!", :accept)
+        flash("Välkommen till Digital Demokrati, #{session[:user].firstname}!", :accept)
         redirect "/"
       #end
     end
@@ -151,6 +155,7 @@ class Democracy < Sinatra::Application
 
     key = HashKey.add(email_given).hash
     session[:flash_top] = flash "This app can not yet send email. Here is the confirmation link: </br>#{'&nbsp;'*10}<a href='/reset_password/#{key}'>#{key}</a>", :accept
+    
     redirect "/reset_password"
   end
 

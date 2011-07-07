@@ -2,6 +2,7 @@
 
 Ohm.connect
 
+require './mailer'
 require './auth'
 
 class Democracy < Sinatra::Application
