@@ -25,7 +25,7 @@
   %h2 Propositioner
   - Proposition.all.each do |p|
     %a{:href => "/proposition/#{p.id}"}
-      %h3= p.name
+      %h3= p.title
       %p= p.text.split("\n").first
       %p
         .left

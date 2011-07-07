@@ -24,7 +24,7 @@
   - activities = @citizen.propositions
   - activities.each do |a|
     - if a.is_a? Proposition
-      %h3= a.name
+      %h3= a.title
       %p= a.text.split("\n").first
 
 .grid_3
@@ -53,7 +53,7 @@
   .citizen_proposition
     %h3 Propositions
     - @citizen.propositions.each do |p|
-      %h3= p.name
+      %h3= p.title
       %p= p.text
       %h4 Arguments
       %ul
@@ -63,7 +63,7 @@
   .citizen_arguments
     %h3 Propositions
     - @citizen.arguments.each do |a|
-      %h3= "#{a.citizen} ang #{a.proposition.name}"
+      %h3= "#{a.citizen} ang #{a.proposition.title}"
       %p= a.text
 
   .citizen_votes

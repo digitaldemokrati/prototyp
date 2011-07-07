@@ -93,7 +93,7 @@ class Citizen < Ohm::Model
 end
 
 class Proposition < Ohm::Model
-  attribute :name
+  attribute :title
   attribute :text
   reference :citizen, Citizen
   collection :votes, Vote
@@ -101,7 +101,7 @@ class Proposition < Ohm::Model
   
   def validate
     assert_present :citizen
-    assert_present :name
+    assert_present :title
   end
   
   def result
@@ -128,11 +128,11 @@ class Vote < Ohm::Model
   def to_s
     case value
     when "-1"
-      "<b>↓</b> #{citizen.name} röstade nej till #{proposition.name}"
+      "<b>↓</b> #{citizen.name} röstade nej till #{proposition.title}"
     when "0"
-      "→ #{citizen.name} avstod från att rösta om #{proposition.name}"
+      "→ #{citizen.name} avstod från att rösta om #{proposition.title}"
     when "1"
-      "↑ #{citizen.name} röstade ja till #{proposition.name}"
+      "↑ #{citizen.name} röstade ja till #{proposition.title}"
     else
       "[value not found]"
     end
