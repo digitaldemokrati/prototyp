@@ -48,7 +48,7 @@ class Citizen < Ohm::Model
     supporters.reject { |c| voters.include? c }.inject(1) do |p, c|
       voters << c
       p += c.current_power(voters) / c.representatives.size.to_f
-    end
+    end.round(2)
   end
 
   # Average share of representatives votes
@@ -61,6 +61,9 @@ class Citizen < Ohm::Model
     "<a href='/citizen/#{id}'>#{name} (#{powerr})</a>"
   end
 
+  def link_no_power
+    "<a href='/citizen/#{id}'>#{name}</a>"
+  end
 
   ## Stuff related to auth begins here.
   ##############################################################################
@@ -106,6 +109,10 @@ class Proposition < Ohm::Model
   
   def result
     votes.inject(0) { |r, v| r += v.citizen.current_power(votes.map(&:citizen)) * v.value.to_f }.round(2)
+  end
+  
+  def voters
+    votes.map(&:citizen)
   end
 end
 

@@ -27,15 +27,15 @@
   %h2 Ja
   %ul
     - @proposition.votes.select { |v| v.value == "1" }.each do |v|
-      %li= v.citizen.link
+      %li= v.citizen.link_no_power + " (#{v.citizen.current_power(@proposition.voters)})"
   %h2 Nej
   %ul
     - @proposition.votes.select { |v| v.value == "-1" }.each do |v|
-      %li= v.citizen.link
+      %li= v.citizen.link_no_power + " (#{v.citizen.current_power(@proposition.voters)})"
   %h2 Avstår
   %ul
     - @proposition.votes.select { |v| v.value == "0" }.each do |v|
-      %li= v.citizen.link
+      %li= v.citizen.link_no_power + " (#{v.citizen.current_power(@proposition.voters)})"
 
 .grid_3
   %h2 Liknande motioner
