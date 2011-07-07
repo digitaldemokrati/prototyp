@@ -30,7 +30,8 @@ Milestone 1: Deploy a MVP
 -------------------------
 
 * UPDATE: It is now possible to create accounts! However, the confirmation email is now just a confirmation link on the homepage. In other words, an email sending thingy needs to be created...
-* Enable users to create new propositions, arguments.
+* FIXED: Enable users to create new propositions.
+* Enable users to create new arguments.
 * Implement voting on both propositions and arguments.
 * Do the actualy deployment somewhere and point digitaldemokrati.se to the server.
 
@@ -51,6 +52,10 @@ Slightly more long term technical issues
 * How can we programmatically identify political blocs? A clean algorithm for this would be most appreciated! It is important for this algorithm to be as objective as possible, that is, it should contain as few arbitrary variables as possible (say, thresholds for how alike two voting patterns need to be to be clustered into the same block). Any clever ideas? (When we have a solution it will be way fun to see which citizens are most representative for their respective blocks, etc!)
 
 * A special task which we can hopefully find a volonteer for is to do Facebook integration! For one, people should be able to create accounts by connecting with their Facebook accounts. Of course, stuff should also be sharable (say, sharing that you have voted for something, that you like a particular argument, that you have chosen a representative etc). Maybe it's also possible to make a widget for people to have on their FB profiles displaying their status in DD (how many representatives, what voting power etc).
+
+* There should be a comprehensive API that let's others plug into the Direkt Demokrati platform! Yes, it's a cliche, but it's also quite useful. Our API could be modelled after the Facebook Graph API, which is very nicely implemented. It would be very cool if others could start displaying voting results on their homepages, if arguments could be both imported and exported to other forums etc. The opportunities are obviously endless.
+
+* An important question is how to handle local politics. Should we have separate instances for every municipality? Obviously, the user management should to be universal, but it will probably be very natural to isolate issues relating to a specific municipal council etc. Perhaps we can do this simply with some kind of tags, but if we need to have something more complex, we should put it in the plans early on. So, if nothing else, some serious thinking needs to be done here.
 
 
 Miscellaneous

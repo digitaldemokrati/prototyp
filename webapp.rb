@@ -26,6 +26,26 @@ class Democracy < Sinatra::Application
     @proposition = Proposition[params[:id]]
     haml :proposition
   end
+
+  get "/create_proposition" do
+    authorize!
+    haml :proposition_create
+  end
+
+  post "/create_proposition" do
+    authorize!
+    p = params['proposition']
+    p['citizen'] = session[:user]
+    puts "this user is proposing: #{p['citizen']}"    
+    created = Proposition.create p
+    puts "created proposition: #{created.inspect}"
+    unless created.valid?
+      flash("Något gick fel - ditt förslag har inte sparats!", :error)
+      @prop_title, @prop_text = p['title'], p['text']
+      haml :create_proposition
+    end
+    redirect "/proposition/#{created.id}"
+  end
   
   get "/argument/:id" do
     redirect "/"

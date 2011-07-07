@@ -1,18 +1,22 @@
 
-.grid_12
-  %h2 Välkommen till Digital Demokrati!
-  %p Digital Demokrati är Sveriges genuint demokratiska skuggparlament. <a href="/om">Läs mer här!</a>
+.grid_9
   - unless authorized?
-    .grid_4.alpha
-      %h3 Vad är detta?
-      %p Digital Demokrati är Sveriges genuint demokratiska skuggparlament. Här kan alla medborgare delta i ett stort samtal om samhället, rösta i politiska frågor - och utse egna representanter för de omröstningar man själv inte kan eller vill delta i. <a href="/about">Läs mer här!</a>
-    .grid_4
-      %h3 Bli medlem!
-      %p Att bli medlem i Digital Demokrati går snabbt och enkelt. Skriv in din e-postadress i rutan nedan så får du strax ett mail med ytterligare instruktioner:
-      = partial :signup
-    .grid_4.omega
-      %h3 Redan medlem? Logga in!
-      = partial :login
+    .box{ :style => "background-color: #eee; padding: 0px 20px 10px 15px" }
+      %h2 Välkommen till Digital Demokrati!
+      %p Digital Demokrati är Sveriges genuint demokratiska skuggparlament. <a href="/om">Läs mer här!</a>
+      .grid_4.alpha
+        %h3 Vad är detta?
+        %p Digital Demokrati är Sveriges genuint demokratiska skuggparlament. Här kan alla medborgare delta i ett stort samtal om samhället, rösta i politiska frågor - och utse egna representanter för de omröstningar man själv inte kan eller vill delta i. <a href="/about">Läs mer här!</a>
+      .grid_4
+        %h3 Bli medlem!
+        %p Att bli medlem i Digital Demokrati går snabbt och enkelt. Skriv in din e-postadress i rutan nedan så får du strax ett mail med ytterligare instruktioner:
+        = partial :signup
+      -#.grid_4.omega
+        -#%h3 Redan medlem?
+        -#%p Logga in med rutorna längst upp till höger!
+        -#= partial :login
+      .clear
+.clear
 
 .grid_3
   %h2 Medborgare

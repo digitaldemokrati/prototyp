@@ -1,6 +1,15 @@
 .grid_12#header
   - if authorized?
     %span{ :style => "float:right; margin-top: 25px"}
+      = "Välkommen, #{session[:user].name}! &nbsp;&nbsp;"
+      %a{ :href => "/create_proposition" } propose &nbsp;&nbsp;
       %a{ :href => "/logout" } logout
+  - else
+    %span{ :style => "float:right; margin-top: 20px"}
+      %form{ :action => "/login", :method => "post" }
+        %input{ :name => "login[email]", :placeholder => "e-postadress" }
+        %input{ :name => "login[password]", :type => "password", :placeholder => "lösenord" }
+        %input{ :type => "submit", :value => "Logga in" }
+    
   %h1
     %a{:href => "/"} Digital Demokrati

@@ -15,9 +15,11 @@ class Democracy < Sinatra::Application
         redirect '/'
       end
 
-      unless session[:user].may? realm
-        session[:flash_top] = flash("Du har inte rättigheter för den eftersökta sidan.", :error)
-        redirect '/'
+      if realm
+        unless session[:user].may? realm
+          session[:flash_top] = flash("Du har inte rättigheter för den eftersökta sidan.", :error)
+          redirect '/'
+        end
       end
     end
 
@@ -37,6 +39,9 @@ class Democracy < Sinatra::Application
   end
 
   post '/login' do
+
+    session[:user] = Citizen.all.to_a[rand(Citizen.all.to_a.length)+1]
+    redirect '/'
 
     user = Citizen.find( :email => params['login']['email'] ).first
     
